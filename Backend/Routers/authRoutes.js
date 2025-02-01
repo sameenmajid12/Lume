@@ -1,0 +1,27 @@
+const express = require('express');
+const User = require('../../MongoDB/userModel');
+const authRouter = express.Router();
+const bcrypt = require('bcryptjs')
+
+authRouter.post('/register',async(req,res,next)=>{
+  try{
+    const newUserInfo = req.body;
+    if(!((await User.find({username:newUserInfo.username})).length>0)){
+      const password = newUserInfo.password;
+      const newPassword = await bcrypt.hash(password,10);
+      newUserInfo.password = newPassword;
+      const user = await User.create(newUserInfo);
+      res.status(201).send(user);
+    }
+    else{
+      throw new Error('User already exists')
+    }
+  }
+  catch(error){
+    console.log(error);
+    res.status(409).send(error);
+  }
+ 
+})
+
+module.exports = {authRouter};
