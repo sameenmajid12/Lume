@@ -16,8 +16,8 @@ function Header(){
         <p className={active==="dashboard"?'header-active':'header-text'}>Dashboard</p>
       </div>
       <div className="header-right">
-      <i className="fa-solid fa-magnifying-glass"></i> 
-      {user?<img></img>:<><button onClick={()=>navigate('/register')} className="header-signup">Sign Up</button><button onClick={()=>navigate('/login')} className="header-login">Login</button></>}       
+      <i className="fa-solid fa-magnifying-glass magnifying-glass"></i> 
+      {user?<i className="fa-solid fa-circle-user header-profile"></i>:<><button onClick={()=>navigate('/register')} className="header-signup">Sign Up</button><button onClick={()=>navigate('/login')} className="header-login">Login</button></>}       
       </div>
     </div>
   )

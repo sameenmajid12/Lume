@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../../styles/authentication.css";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 function Login() {
+  const {setUser} = useContext(UserContext);
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [emailUsername, setEmailUsername] = useState("");
@@ -12,8 +14,30 @@ function Login() {
   const handleEmailUsernameChange = (e)=>{
     setEmailUsername(e.target.value);
   }
-  const login=()=>{
-
+  const login=async()=>{
+    try{
+      const user = {
+        username:emailUsername,
+        password:password
+      }
+      const response = await fetch('http://localhost:3002/auth/login',{
+        method:"POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify(user)
+      });
+      if(response.ok){
+        const data = await response.json()
+        console.log(data);
+        setUser(data);
+        localStorage.setItem('user', JSON.stringify(user));
+        navigate('/');
+      }
+    }
+    catch(error){
+      console.error(error);
+    }
   }
   return (
     <div className="auth-page-body">
@@ -27,8 +51,8 @@ function Login() {
           </div>
           <div className="auth-body">
             <div className="auth-input">
-              <p>Email address or username</p>
-              <input onChange={handleEmailUsernameChange} value={emailUsername} type="text" placeholder="Enter email or username"></input>
+              <p>Username</p>
+              <input onChange={handleEmailUsernameChange} value={emailUsername} type="text" placeholder="Enter username"></input>
             </div>
             <div className="auth-input">
               <p>Password</p>
