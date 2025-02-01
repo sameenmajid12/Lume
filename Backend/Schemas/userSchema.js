@@ -10,10 +10,13 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 100,
   },
-  enrolledCourses: { type: mongoose.Schema.Types.ObjectId, ref: "Courses" },
-  createdCourses: { type: mongoose.Schema.Types.ObjectId, ref: "Courses" },
-  contributedCourses: { type: mongoose.Schema.Types.ObjectId, ref: "Courses" },
+  enrolledCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Courses" }],
+  createdCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Courses" }],
+  contributedCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Courses" }],
 
 });
+
+userSchema.index({ email: 1 });
+userSchema.index({ username: 1 });
 
 module.exports = mongoose.model("Users", userSchema);
