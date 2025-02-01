@@ -13,7 +13,7 @@ function Home() {
       stepNum: 1,
       button: {
         text: "Create a new account now",
-        onClick: ()=>nav("/register"),
+        onClick: ()=>nav("register"),
       },
     },
     {
@@ -22,7 +22,7 @@ function Home() {
       stepNum: 2,
       button: {
         text: "Browse courses",
-        onClick: ()=>nav("/register"),
+        onClick: ()=>nav("explore"),
       },
     },
     {
@@ -31,7 +31,7 @@ function Home() {
       stepNum: 3,
       button: {
         text: "Create your own course",
-        onClick: ()=>nav("/register"),
+        onClick: ()=>nav("create"),
       },
     },
     {
@@ -40,7 +40,7 @@ function Home() {
       stepNum: 4,
       button: {
         text: "Go to dashboard",
-        onClick: ()=>nav("/register"),
+        onClick: ()=>nav("dashboard"),
       },
     },
   ];
@@ -78,12 +78,12 @@ function Home() {
       <div className="getting-started-steps">
         {cards.map((card, index) => {
           return (
-            <div className="getting-started-card">
+            <div key={index} className="getting-started-card">
               <p className="getting-started-card-header">Step {card.stepNum}</p>
               <div className="getting-started-card-body">
                 <i className={card.icon}></i>
                 <p dangerouslySetInnerHTML={{ __html: card.text }}></p>
-                <button className="getting-started-button" onClick={()=>card.button.onClick}>{card.button.text}</button>
+                <button className="getting-started-button" onClick={card.button.onClick}>{card.button.text}</button>
               </div>
             </div>
           );
