@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Main/Header';
 import './styles/general.css'
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,6 +9,9 @@ function App() {
   return (
     <>
       <Header/>
+      <div className='outlet-page-container'>
+        <Outlet/>
+      </div>
     </>
   )
 }

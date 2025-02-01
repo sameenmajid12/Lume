@@ -6,6 +6,7 @@
   align-items: center;justify-content: space-between;
   padding:0px 300px;
   box-sizing: border-box;
+  background-color: var(--background-color);
 }
 .header-left{
   display: flex;
@@ -15,9 +16,11 @@
 }
 .header-text{
   color:var(--body-text-color);
+  cursor: pointer;
 }
 .header-active{
   color:var(--header-text-color);
+  cursor: pointer;
 }
 .header-right{
   display: flex;
@@ -28,7 +31,7 @@
   height: 30px;
   width:100px;
   border-radius: 5px;
-
+  cursor: pointer;
 }
 .header-login{
   background-color: var(--accent-color);
@@ -44,6 +47,7 @@
 .header-right i{
   color:black;
   padding-right:25px;
+  cursor: pointer;
 }
 .header-logo{
   width:30px;

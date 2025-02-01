@@ -5,11 +5,17 @@ import { UserProvider } from "./context/UserContext.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from './components/Authentication/Login.jsx';
 import Register from "./components/Authentication/Register.jsx";
+import Home from "./components/Home/Home.jsx";
 const router = createBrowserRouter([
   { 
     path:"/",
     element:<App/> ,
-    children:[]
+    children:[
+      {
+        path:"",
+        element:<Home/>
+      }
+    ]
   },
   {
     path:"/login",

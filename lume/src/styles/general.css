@@ -5,6 +5,7 @@
   --header-text-color:#183153;
   --body-text-color: #6B8992;
   --accent-hover:#6b9affd3;
+  --header-height:4rem;
 }
 
 html, body{
@@ -13,12 +14,13 @@ html, body{
   font-family:'Inter';
   box-sizing: border-box;
 }
-p{
-  margin:0;
-  font-family:'Inter';
-
+body{
+  min-height: 100dvh;
 }
-h1{
+.outlet-page-container{
+  padding-top:var(--header-height);
+}
+p,h1,h2,h3,h4{
   margin:0;
   font-family:'Inter';
 

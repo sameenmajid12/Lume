@@ -4,6 +4,7 @@ import '../../styles/header.css'
 import { useContext, useState } from "react";
 function Header(){
   const {user} = useContext(UserContext);
+  const navigate = useNavigate();
   const [active, setActive] = useState("home");
   return(
     <div className="header-container">
@@ -16,7 +17,7 @@ function Header(){
       </div>
       <div className="header-right">
       <i className="fa-solid fa-magnifying-glass"></i> 
-      {user?<img></img>:<><button className="header-signup">Sign Up</button><button className="header-login">Login</button></>}       
+      {user?<img></img>:<><button onClick={()=>navigate('/register')} className="header-signup">Sign Up</button><button onClick={()=>navigate('/login')} className="header-login">Login</button></>}       
       </div>
     </div>
   )
