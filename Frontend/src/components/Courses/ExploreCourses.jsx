@@ -31,7 +31,7 @@ function ExploreCourses(){
           <div className="explore-page-search"><i className="fa-solid fa-magnifying-glass"></i><input placeholder="Search course"></input></div>
         </div>
       </div>
-      <div>
+      <div className="explore-page-courses">
         <CourseCards/>
       </div>
     </div>

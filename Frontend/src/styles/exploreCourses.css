@@ -131,3 +131,8 @@
   transform: translateY(-50%);
   font-size: 14px;
 }
+
+.explore-page-courses{
+  padding: 0px 300px;
+  grid:1fr 1fr 1fr 1fr;
+}
