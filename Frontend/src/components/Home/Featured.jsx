@@ -1,21 +1,20 @@
+import CourseCards from '../Courses/CourseCards';
 function Featured(){
- <div className="featured-courses-container">
-  <div className="featured-courses-banner"></div>
-  <div className="featured-courses-cards">
-    <div className="featured-course">
-      <div className="featured-course-details">
-        <img></img>
-        <h2></h2>
-        <p></p>
-        <p></p>
-      </div>
-      <div className="featured-course-interactions">
-        <div><i></i><i></i></div>
-        <button>Enroll now</button>
-      </div>
+ return(<>
+  <div className="featured-courses-banner">
+    <img src="/assets/star.png"></img>
+    <div className="featured-courses-banner-text">
+      <h3>Featured courses</h3>
+      <p>Discover Top Courses to Kickstart Your Journey!</p>
     </div>
   </div>
- </div>
+  <div className="featured-courses-cards">
+    <CourseCards/>
+    <CourseCards/>
+    <CourseCards/>
+    <CourseCards/>
+  </div>
+ </>)
 }
 
 export default Featured;

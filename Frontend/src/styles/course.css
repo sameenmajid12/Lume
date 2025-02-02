@@ -1,5 +1,5 @@
 .course-card-container{
-  width:315px;
+  max-width: 280px;
   height:400px;
   padding:15px;
   background-color: var(--background-secondary);

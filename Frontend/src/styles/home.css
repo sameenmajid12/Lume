@@ -145,3 +145,30 @@
 .getting-started-bold{
   color:var(--header-text-color);
 }
+
+.featured-courses-banner{
+  height: 120px;
+  background-color: var(--background-secondary);
+  display: flex;
+  padding:0px 300px;
+  justify-content: space-between;
+  align-items: center;
+}
+.featured-courses-banner img{
+  width: 50px;
+}
+.featured-courses-banner h3{
+  color:var(--header-text-color);
+  font-size:30px;
+  font-weight: 500;
+}
+.featured-courses-banner p{
+  color:var(--body-text-color);
+  font-size: 16px;;
+}
+.featured-courses-cards{
+  padding:0px 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 20px;
+}
