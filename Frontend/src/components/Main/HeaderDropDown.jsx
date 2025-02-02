@@ -33,13 +33,13 @@ function HeaderDropDown({ setVisibility }) {
       </div>
       <div onClick={()=>navigate('/create')} className="header-drop-down-div">
         <div>
-        <i class="fa-solid fa-square-plus"></i>
+        <i className="fa-solid fa-square-plus"></i>
         </div>
         <p>Create</p>
       </div>
       <div onClick={logOutUser} className="header-drop-down-div">
         <div>
-        <i class="fa-solid fa-right-from-bracket"></i>
+        <i className="fa-solid fa-right-from-bracket"></i>
         </div>
         <p>Logout</p>
       </div>

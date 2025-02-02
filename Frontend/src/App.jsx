@@ -14,7 +14,7 @@ function App() {
       <div className='outlet-page-container'>
         <Outlet/>
       </div>
-      {location.pathname.split('/')[1]!=='create'?<Footer/>:''}
+      {location.pathname.split('/')[1]!=='create' && location.pathname.split('/')[1]!=="course"?<Footer/>:''}
     </>
   )
 }
