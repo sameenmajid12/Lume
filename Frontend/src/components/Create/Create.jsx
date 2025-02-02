@@ -1,21 +1,31 @@
 import React, { useState, useRef } from "react";
-import '../../styles/create.css'
-const ContentBlockEditor = () => {
+import "../../styles/create.css";
+import { use } from "react";
+const Create = () => {
   const [blocks, setBlocks] = useState([]);
-  const [title, setTitle] = useState("New course")
+  const [title, setTitle] = useState("New course");
+  const [coverPhoto, setCoverPhoto] = useState(null);
   const [menuVisible, setMenuVisible] = useState(false);
   const [currentBlockIndex, setCurrentBlockIndex] = useState(null);
+  const fileInputRef = useRef(null);
   const menuRef = useRef(null);
-  const changeTitle=()=>{
-    
-  }
+  const changeTitle = (e) => {
+    setTitle(e.target.value);
+  };
   const handleKeyDown = (event, index) => {
     if (event.key === "/") {
       setMenuVisible(true);
       setCurrentBlockIndex(index);
+    } else {
+      if (menuVisible) {
+        setMenuVisible(false);
+      }
     }
   };
-
+  const coverUpload = (e) => {
+    setCoverPhoto(e.target.files[0]);
+    console.log(e.target.files[0]);
+  };
   const addBlock = (type) => {
     const newBlock = { type, content: "" };
     const updatedBlocks = [...blocks];
@@ -28,11 +38,53 @@ const ContentBlockEditor = () => {
     const updatedBlocks = [...blocks];
     updatedBlocks[index].content = content;
     setBlocks(updatedBlocks);
+    if (textareasRefs.current[index]) {
+      textareasRefs.current[index].style.height = "auto"; 
+      textareasRefs.current[index].style.height = textareasRefs.current[index].scrollHeight + "px";
+    }
   };
-
+  const textareasRefs = useRef([]);
   return (
     <div className="create-container-page">
-      <input onChange={changeTitle} value={title}></input>
+      <div className="create-header">
+        <input
+          onChange={changeTitle}
+          className="create-title-input"
+          value={title}
+        ></input>
+        {!coverPhoto ? (
+          <>
+            <input
+              ref={fileInputRef}
+              onChange={coverUpload}
+              id="addCoverPhoto"
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }} // Hide default input UI
+            />
+            <label htmlFor="addCoverPhoto">
+              <div className="create-add-cover-photo">
+                <i className="fa-regular fa-square-plus"></i>
+                <p>Add cover photo</p>
+              </div>
+            </label>
+          </>
+        ) : (
+          <img
+            className="cover-photo"
+            src={URL.createObjectURL(coverPhoto)}
+          ></img>
+        )}
+      </div>
+      {blocks.length === 0 ? (
+        <div onClick={()=>addBlock("text")} className="add-block">
+          <div>
+            <i className="fa-solid fa-circle-plus"></i>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       {blocks.map((block, index) => (
         <div key={index} className="block">
           {block.type === "text" && (
@@ -42,6 +94,8 @@ const ContentBlockEditor = () => {
               onChange={(e) => updateBlockContent(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               placeholder="Type '/' for options..."
+               wrap="hard"
+               ref={(el) => (textareasRefs.current[index] = el)}
             />
           )}
           {block.type === "image" && (
@@ -72,18 +126,14 @@ const ContentBlockEditor = () => {
 
       {menuVisible && (
         <div className="menu" ref={menuRef}>
-          <button onClick={() => addBlock("text")}>Text</button>
-          <button onClick={() => addBlock("image")}>Image</button>
-          <button onClick={() => addBlock("video")}>Video</button>
-          <button onClick={() => addBlock("list")}>List</button>
+          <div onClick={() => addBlock("text")}>Text</div>
+          <div onClick={() => addBlock("image")}>Image</div>
+          <div onClick={() => addBlock("video")}>Video</div>
+          <div onClick={() => addBlock("list")}>List</div>
         </div>
       )}
-
-      <button className="add-block" onClick={() => setBlocks([...blocks, { type: "text", content: "" }])}>
-        + Add Block
-      </button>
     </div>
   );
 };
 
-export default ContentBlockEditor;
+export default Create;
