@@ -21,6 +21,8 @@ const blockSchema = new mongoose.Schema({
     type: Number,
   },
 });
+
+
 const courseSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -33,6 +35,10 @@ const courseSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
+  },
+  subcategory:{
+    type:String,
+    required:true
   },
   contributors: [{ type: mongoose.Schema.Types.ObjectId, ref: "Users" }],
   createdAt: { type: Date, default: Date.now },
