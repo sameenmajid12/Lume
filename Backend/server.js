@@ -2,7 +2,7 @@
  const mongoose = require("mongoose");
  const cors = require("cors");
 const dotenv = require("dotenv")
-
+const Course = require('./Schemas/courseSchema.js')
 // Import Routers
 const {authRouter} = require("./Routers/authRouter.js");
 const {userRouter} = require("./Routers/userRouter.js");
@@ -22,7 +22,6 @@ app.use(cors(corsOptions));
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/courses", courseRouter);
-
 
 mongoose
   .connect(process.env.MONGO_URI)
