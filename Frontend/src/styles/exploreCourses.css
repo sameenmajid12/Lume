@@ -63,9 +63,9 @@
   width:120px;
   height:30px;
   border-radius:30px;
+  cursor: pointer;
 }
 .explore-page-button{
-   
     background-color: var(--background-color);
     border:1px solid var(--accent-color);
     color:var(--accent-color);
@@ -89,6 +89,7 @@
   font-size: 14px;
   color:var(--header-text-color);
   position: relative;
+  cursor: pointer;
 }
 
 .selector-line{

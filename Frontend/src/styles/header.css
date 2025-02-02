@@ -7,6 +7,7 @@
   padding:0px 300px;
   box-sizing: border-box;
   background-color: var(--background-color);
+  z-index: 200;
 }
 .header-left{
   display: flex;
@@ -39,7 +40,7 @@
   border:none;
 }
 .header-login:hover{
-  color:var(--accent-hover);
+  background-color:var(--accent-hover);
   box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
 }
 .header-signup{
@@ -52,6 +53,8 @@
   font-size:20px;
   color:var(--accent-color);
   cursor: pointer;
+  position: relative
+
 }
 .header-profile:hover{
   color:var(--accent-hover);
@@ -64,4 +67,82 @@
 .header-logo{
   width:30px;
   height:27px;
+}
+.header-drop-down-container{
+  width:250px;
+  position: absolute;
+  top:30px;
+  right:0;
+  background-color: var(--background-secondary);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.25);
+  border-radius: 10px;
+}
+.header-drop-down-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(0,0,0,0.25)
+}
+.header-drop-down-header-body{
+  display: flex;
+  column-gap: 3px;
+}
+.header-drop-down-header-body h3{
+  font-size:12px;
+  color:var(--header-text-color);
+  font-weight: 500;
+}
+.header-drop-down-header-body p{
+  font-size:10px;
+  color:var(--body-text-color);
+  font-weight: 500;
+}
+.header-drop-down-header-body img{
+  width:25px;
+}
+.header-drop-down-brains{
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.header-drop-down-brains img{
+  width: 30px;;
+}
+.header-drop-down-brains p{
+  color:var(--header-text-color);
+  font-size:10px;
+  font-weight: 600;
+}
+
+.header-drop-down-div{
+  display: flex;
+  padding:12px;
+  border-bottom:1px solid rgba(0,0,0,0.25);
+  align-items: center;
+}
+.header-drop-down-div div{
+  width:25px;
+  padding-right:5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-drop-down-div i{
+  font-size: 20px;
+  color:var(--accent-color);
+}
+.header-drop-down-div:hover i{
+  color:var(--accent-hover);
+}
+.header-drop-down-div:hover p{
+  color: var(--body-text-color);
+}
+.header-drop-down-div p{
+  color:var(--header-text-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+.header-drop-down-div:last-child{
+  border-bottom:none;
 }
