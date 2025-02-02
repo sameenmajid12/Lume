@@ -1,5 +1,5 @@
 import "../../styles/course.css";
-function CourseCards() {
+function CourseCards({course}) {
   return (
     <div className="course-card-container">
       <div className="course-card-top">

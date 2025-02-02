@@ -2,6 +2,7 @@
   min-height:calc(100dvh - var(--header-height));
   background-color: var(--background-secondary);
   padding:40px 300px;
+  box-sizing: border-box  ;
 }
 .create-header{ 
   display: flex;
@@ -76,5 +77,33 @@ textarea{
   outline:none;
 }
 .menu{
-  
+  background-color: white;
+  height: max-content;
+  width: 150px;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+}
+.menu-header{
+  color:var(--header-text-color);
+  padding:5px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  font-size:16px;
+  font-weight: 500;
+}
+.menu-body{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding:5px 12px;
+  color:var(--body-text-color);
+  font-size: 14px;
+}
+.menu-body div{
+  cursor: pointer;
+  display: flex;
+  column-gap: 7px;
+}
+.menu-body div:hover{
+  color:var(--header-text-color);
 }
