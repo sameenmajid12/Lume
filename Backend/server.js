@@ -21,7 +21,7 @@ app.use(cors(corsOptions));
 // Routes
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
-app.use("/courses", courseRouter);
+app.use("/course", courseRouter);
 
 mongoose
   .connect(process.env.MONGO_URI)

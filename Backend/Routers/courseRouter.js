@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs')
 courseRouter.get('/:courseId',async(req,res,next)=>{
   try{
     const {courseId} = req.params;
+    console.log(courseId);
     const course = await Course.findById(courseId);
     if(!course){
       res.status(404).json({message:"Course not found"});
