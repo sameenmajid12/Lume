@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom:30px;
+  padding-bottom:10px;
 }
 .create-title-input{
   font-size:35px;
@@ -36,9 +36,18 @@
   cursor: pointer;
 }
 .cover-photo{
-  width: 100px;
+  max-height: 60px;
 }
-
+.create-description-input{
+  color:var(--body-text-color);
+  background-color: transparent;
+  padding:10px 0px;
+  margin-bottom:20px;
+  width: 100%;
+  border:none;
+  outline:none;
+  font-size:16px;
+}
 .add-block{
   width: 100%;
 
@@ -106,4 +115,21 @@ textarea{
 }
 .menu-body div:hover{
   color:var(--header-text-color);
+}
+
+.list-block input{
+  width: 100%;
+  border: none;
+  font-size:16px;
+  background-color: transparent;
+  outline:none;
+}
+.upload-placeholder{
+  display: flex;
+  align-items: center;
+  color:var(--accent-color);
+  font-weight: 500;
+  font-size: 20px;
+  column-gap: 10px;
+  cursor: pointer;
 }
